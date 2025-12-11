@@ -1,84 +1,39 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-
-const initialVotes = {
-  JavaScript: 0,
-  Python: 0,
-  Java: 0,
-};
-
-function App() {
-  // Load saved votes or use default
-  const [votes, setVotes] = useState(() => {
-    const saved = localStorage.getItem("votes");
-    return saved ? JSON.parse(saved) : initialVotes;
-  });
-
-  // Track if user already voted
-  const [hasVoted, setHasVoted] = useState(() => {
-    return localStorage.getItem("hasVoted") === "true";
-  });
-
-  // Save to localStorage when votes change
-  useEffect(() => {
-    localStorage.setItem("votes", JSON.stringify(votes));
-  }, [votes]);
-
-  // Save hasVoted flag
-  useEffect(() => {
-    localStorage.setItem("hasVoted", hasVoted);
-  }, [hasVoted]);
-
-  // Voting logic
-  const vote = (language) => {
-    if (hasVoted) return;
-    setVotes((prev) => ({
-      ...prev,
-      [language]: prev[language] + 1,
-    }));
-    setHasVoted(true);
-  };
-
-  // Reset logic
-  const resetVotes = () => {
-    setVotes(initialVotes);
-    setHasVoted(false);
-    localStorage.removeItem("hasVoted");
-  };
-
+// App.js - Corrected version
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Signup from "./Signup";
+import Login from "./Login";
+import Dashboard from "./Dashboard";
+import CreatePoll from "./CreatePoll";
+import PollView from "./PollView";
+const App = () => {
   return (
-    <div className="App">
-      <h1>Vote for Your Favorite Programming Language</h1>
-
-      <div className="buttons">
-        {Object.keys(votes).map((lang) => (
-          <button
-            key={lang}
-            onClick={() => vote(lang)}
-            disabled={hasVoted}
-            className="vote-btn"
-          >
-            {lang}
-          </button>
-        ))}
-      </div>
-
-      {hasVoted && <p className="info">✅ You’ve already voted!</p>}
-
-      <h2>Results:</h2>
-      <ul className="results">
-        {Object.entries(votes).map(([lang, count]) => (
-          <li key={lang}>
-            {lang}: <strong>{count}</strong>
-          </li>
-        ))}
-      </ul>
-
-      <button className="reset-btn" onClick={resetVotes}>
-        Reset Votes
-      </button>
-    </div>
+    <Router>
+      <Routes>
+        {/* Default route redirects to the user's home page (Dashboard) */}
+        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        
+        {/* The new home page route */}
+        <Route path="/dashboard" element={<Dashboard />} />
+        
+        <Route path="/create-poll" element={<CreatePoll />} />
+        
+        {/* Note: If you want to keep a general voting page, you should point
+        | this route to a dedicated voting component that handles poll selection. 
+        | We keep the old name here to avoid new errors, but its function is now different */}
+        <Route path="/vote" element={<Dashboard />} />
+           <Route path="/poll/:pollId" element={<PollView />} /> 
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,396 @@
+
+.create-poll-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff; /* White background for component */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.create-poll-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* --- Form Groups --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.poll-form input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box; /* Ensures padding doesn't increase total width */
+    font-size: 16px;
+}
+
+/* --- Options List --- */
+.options-list {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px dashed #ddd;
+    border-radius: 8px;
+}
+
+.options-list > label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: #555;
+}
+
+.option-input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.option-input-group input {
+    flex-grow: 1; /* Input takes up available space */
+}
+
+.remove-option-btn {
+    background-color: #ff4d4d; /* Red color for remove */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.remove-option-btn:hover {
+    background-color: #e60000;
+}
+
+.add-option-btn {
+    background-color: #4CAF50; /* Green color for add */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+    display: block; /* Make it a block element to take full width or align */
+}
+
+.add-option-btn:hover {
+    background-color: #45a049;
+}
+
+/* --- Submission Button and Messages --- */
+.submit-poll-btn {
+    width: 100%;
+    background-color: #007bff; /* Blue color for submission */
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+
+.submit-poll-btn:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.submit-poll-btn:disabled {
+    background-color: #b3d7ff; /* Lighter blue when disabled */
+    cursor: not-allowed;
+}
+
+.error-message {
+    background-color: #fdd;
+    color: #cc0000;
+    border: 1px solid #cc0000;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Add these styles to your existing CreatePoll.css */
+
+/* Auth Required Message */
+.auth-required-message {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 40px;
+  text-align: center;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.auth-required-message h2 {
+  color: #343a40;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+.auth-icon {
+  font-size: 3em;
+  margin: 20px 0;
+  color: #667eea;
+}
+
+.auth-description {
+  color: #6c757d;
+  font-size: 1.1em;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.auth-benefits {
+  font-weight: 600;
+  color: #343a40;
+  margin: 30px 0 15px 0;
+  text-align: left;
+}
+
+.benefits-list {
+  text-align: left;
+  max-width: 400px;
+  margin: 0 auto 30px auto;
+  padding: 0;
+}
+
+.benefits-list li {
+  margin-bottom: 12px;
+  color: #495057;
+  list-style-type: none;
+  padding-left: 30px;
+  position: relative;
+  text-align: left;
+}
+
+.benefits-list li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.signup-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signup-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.login-btn {
+  background-color: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #f8f9ff;
+}
+
+.auth-note {
+  color: #6c757d;
+  font-size: 0.9em;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* Create Poll Header */
+.create-poll-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.user-greeting {
+  color: #6c757d;
+  font-size: 1.1em;
+  margin-top: 5px;
+}
+
+/* Field Hints */
+.field-hint {
+  color: #6c757d;
+  font-size: 0.85em;
+  margin: 5px 0 15px 0;
+  font-style: italic;
+}
+
+/* Option Input Group */
+.option-input-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.option-input-group input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.remove-option-btn {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.remove-option-btn:hover:not(:disabled) {
+  background-color: #ff5252;
+  transform: scale(1.1);
+}
+
+.remove-option-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.cancel-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.cancel-btn:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+.submit-poll-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 2;
+}
+
+.submit-poll-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.submit-poll-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Create Poll Tips */
+.create-poll-tips {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+}
+
+.create-poll-tips h4 {
+  color: #343a40;
+  margin-bottom: 15px;
+}
+
+.create-poll-tips ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #6c757d;
+}
+
+.create-poll-tips li {
+  margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .auth-required-message {
+    padding: 25px;
+    margin: 20px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .option-input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .remove-option-btn {
+    align-self: flex-end;
+    width: 35px;
+    height: 35px;
+  }
+}
