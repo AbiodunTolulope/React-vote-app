@@ -1,18 +1,18 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 // 1. Import Firebase Authentication functions and your initialized 'auth' object
-import { auth } from './firebase'; // **IMPORTANT: Adjust path to your Firebase config file**
-import { 
-  onAuthStateChanged, 
-  signInWithEmailAndPassword, 
-  signOut 
+import { auth } from '../firebase'; // **IMPORTANT: Adjust path to your Firebase config file**
+import {
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut
 } from 'firebase/auth';
 
 // 2. Create the Context
 export const AuthContext = createContext({
   user: null,         // The Firebase User object or null
   loading: true,      // To track if Firebase is still checking auth state
-  login: () => {},    // Function to handle login
-  logout: () => {},   // Function to handle logout
+  login: () => { },    // Function to handle login
+  logout: () => { },   // Function to handle logout
 });
 
 // 3. Create a Custom Hook
@@ -76,7 +76,7 @@ export const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider value={contextValue}>
       {/* Only render children when the initial auth state check is complete */}
-      {!loading && children} 
+      {!loading && children}
     </AuthContext.Provider>
   );
 };

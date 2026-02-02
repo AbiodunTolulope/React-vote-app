@@ -1,0 +1,80 @@
+/* CreatePoll.css */
+
+.create-poll-wrapper {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.create-poll-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.create-poll-header h2 {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--neutral-900);
+}
+
+.create-poll-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--neutral-500);
+  margin-bottom: var(--space-4);
+  margin-top: var(--space-6);
+  display: block;
+}
+
+.section-label:first-child {
+  margin-top: 0;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.option-row {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.remove-btn {
+  color: var(--neutral-400);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  transition: all 0.2s;
+}
+
+.remove-btn:hover {
+  color: var(--error);
+  background-color: var(--neutral-100);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--neutral-200);
+}
+
+.network-warning {
+  background-color: var(--warning);
+  color: white;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+  text-align: center;
+  font-weight: 500;
+}

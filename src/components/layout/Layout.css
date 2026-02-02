@@ -1,0 +1,31 @@
+/* Layout.css */
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    background-color: var(--neutral-50);
+    padding: var(--space-8) 0;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.footer {
+    background-color: white;
+    border-top: 1px solid var(--neutral-200);
+    padding: var(--space-6) 0;
+    text-align: center;
+}
+
+.footer-content {
+    color: var(--neutral-500);
+    font-size: var(--text-sm);
+}
