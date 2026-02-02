@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
 import { doc, updateDoc, increment, onSnapshot } from 'firebase/firestore';
-import { useAuth } from '../context/AuthContext';
+
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';
 import "../styles/PollView.css";
@@ -10,7 +10,7 @@ import "../styles/PollView.css";
 function PollView() {
     const { pollId } = useParams();
     const navigate = useNavigate();
-    const { user } = useAuth();
+
 
     const [poll, setPoll] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -19,12 +19,7 @@ function PollView() {
     const [hasVoted, setHasVoted] = useState(false);
     const [copySuccess, setCopySuccess] = useState('');
 
-    // Local storage check for anonymity
-    const checkVoteStatus = () => {
-        if (!pollId) return false;
-        const votedPolls = JSON.parse(localStorage.getItem('votedPolls') || '{}');
-        return !!votedPolls[pollId];
-    };
+
 
     const markAsVoted = () => {
         const votedPolls = JSON.parse(localStorage.getItem('votedPolls') || '{}');
@@ -34,6 +29,12 @@ function PollView() {
 
     useEffect(() => {
         if (!pollId) return;
+
+        const checkVoteStatus = () => {
+            const votedPolls = JSON.parse(localStorage.getItem('votedPolls') || '{}');
+            return !!votedPolls[pollId];
+        };
+
         if (checkVoteStatus()) setHasVoted(true);
 
         const unsubscribe = onSnapshot(doc(db, 'polls', pollId),
